@@ -2,7 +2,7 @@ import "./styles.css";
 
 interface props {
   label: string;
-  value: number;
+  value: string;
   className: string;
   setOperator: any;
 }

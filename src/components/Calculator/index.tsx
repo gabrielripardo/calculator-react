@@ -3,52 +3,92 @@ import Digit from "../Digit";
 import Operator from "../Operator";
 import Display from "../Display";
 import { useState } from "react";
-import { Number } from "../../models/Number";
+import { NumberDigit } from "../../models/NumberDigit";
 
 export default function Calculator() {
+  const [numLeft, setNumLeft] = useState("");
+  const [numRight, setNumRight] = useState("");
   const [digit, setDigit] = useState("");
+  const [operator, setOperator] = useState("");
 
-  const numbersDigits: Number[] = [];
+  const numbersDigits: NumberDigit[] = [];
   for (let i = 1; i <= 9; i++) {
     numbersDigits.push({ label: String(i), value: i });
   }
 
   const setValue = (value: string) => {
-    setDigit(value);
+    setDigit(digit + value);
+    if (operator == "") {
+      setNumLeft(numLeft + value);
+    } else {
+      setNumRight(numRight + value);
+    }
+  };
+
+  const setOperation = (operator: string) => {
+    setOperator(operator);
+    setDigit(numLeft + " " + operator + " ");
+  };
+
+  const clean = () => {
+    setNumLeft("");
+    setNumRight("");
+    setDigit("");
+    setOperator("");
+  };
+
+  const calc = () => {
+    const num1 = Number(numLeft);
+    const num2 = Number(numRight);
+
+    switch (operator) {
+      case "/":
+        return num1 / num2;
+      case "*":
+        return num1 * num2;
+      case "-":
+        return num1 - num2;
+      case "+":
+        return num1 + num2;
+    }
+  };
+
+  const showResult = () => {
+    setDigit(String(calc()));
   };
 
   return (
     <div className="container">
-      <Display>{digit}</Display>
+      <Display>{digit !== "" ? digit : "0"}</Display>
       <div className="keyboard">
         <div className="top-operators">
           <Operator
             label="Ac"
-            value={0}
+            value="cc"
             className="cleaner"
-            setOperator={setValue}
+            setOperator={clean}
           ></Operator>
           <Operator
             label="<-"
-            value={0}
+            value="backspace"
             className="cleaner"
             setOperator={setValue}
           ></Operator>
           <Operator
             label="/"
-            value={0}
+            value="/"
             className="operator"
-            setOperator={setValue}
+            setOperator={setOperation}
           ></Operator>
           <Operator
             label="*"
-            value={0}
+            value="*"
             className="operator"
-            setOperator={setValue}
+            setOperator={setOperation}
           ></Operator>
         </div>
         <div className="numerics">
-          {numbersDigits.map((digit: Number) => (
+          {numbersDigits.map((digit: NumberDigit) => (
             <Digit
               key={digit.label}
               label={digit.label}
@@ -73,23 +113,23 @@ export default function Calculator() {
         <div className="side-operators">
           <Operator
             label="-"
-            value={0}
+            value="-"
             className="operator"
-            setOperator={setValue}
+            setOperator={setOperation}
           ></Operator>
 
           <Operator
             label="+"
-            value={0}
+            value="+"
             className="operator tall"
-            setOperator={setValue}
+            setOperator={setOperation}
           ></Operator>
 
           <Operator
             label="="
-            value={0}
+            value="equal"
             className="result tall"
-            setOperator={setValue}
+            setOperator={showResult}
           ></Operator>
         </div>
       </div>
