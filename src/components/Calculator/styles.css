@@ -1,0 +1,43 @@
+.container {
+  width: 360px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: var(--black600);
+  border-radius: 16px;
+  font-size: 24pt;
+  padding: 26px;
+}
+
+.keyboard,
+.top-operators,
+.side-operators,
+.numerics {
+  gap: 16px;
+}
+
+.keyboard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.side-operators {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.numerics {
+  display: flex;
+}
+.top-operators {
+  display: flex;
+  justify-content: center;
+}

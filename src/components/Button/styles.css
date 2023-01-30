@@ -1,0 +1,35 @@
+.numeric,
+.operator,
+.cleaner,
+.result {
+  font-size: 16pt;
+  border-radius: 16px;
+  border-radius: 16px;
+  width: 62px;
+  height: 60px;
+  border: none;
+}
+
+.numeric {
+  color: var(--blue300);
+  background-color: var(--black100);
+}
+
+.operator {
+  color: var(--blue200);
+  background-color: var(--blue600);
+}
+
+.tall {
+  height: 96px;
+}
+
+.cleaner {
+  color: var(--gray100);
+  background-color: var(--gray200);
+}
+
+.result {
+  background-color: var(--blue400);
+  color: var(--blue100);
+}
