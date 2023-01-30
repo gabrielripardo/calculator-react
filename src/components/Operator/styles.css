@@ -1,4 +1,3 @@
-.numeric,
 .operator,
 .cleaner,
 .result {
@@ -8,11 +7,6 @@
   width: 62px;
   height: 60px;
   border: none;
-}
-
-.numeric {
-  color: var(--blue300);
-  background-color: var(--black100);
 }
 
 .operator {
@@ -32,8 +26,4 @@
 .result {
   background-color: var(--blue400);
   color: var(--blue100);
-}
-
-.number-zero {
-  width: 144px;
 }

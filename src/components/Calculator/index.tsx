@@ -1,5 +1,6 @@
 import "./styles.css";
-import Button from "../Button";
+import Digit from "../Digit";
+import Operator from "../Operator";
 import Display from "../Display";
 import { useState } from "react";
 import { Number } from "../../models/Number";
@@ -21,75 +22,75 @@ export default function Calculator() {
       <Display>{digit}</Display>
       <div className="keyboard">
         <div className="top-operators">
-          <Button
+          <Operator
             label="Ac"
             value={0}
             className="cleaner"
-            setDigit={setValue}
-          ></Button>
-          <Button
+            setOperator={setValue}
+          ></Operator>
+          <Operator
             label="<-"
             value={0}
             className="cleaner"
-            setDigit={setValue}
-          ></Button>
-          <Button
+            setOperator={setValue}
+          ></Operator>
+          <Operator
             label="/"
             value={0}
             className="operator"
-            setDigit={setValue}
-          ></Button>
-          <Button
+            setOperator={setValue}
+          ></Operator>
+          <Operator
             label="*"
             value={0}
             className="operator"
-            setDigit={setValue}
-          ></Button>
+            setOperator={setValue}
+          ></Operator>
         </div>
         <div className="numerics">
           {numbersDigits.map((digit: Number) => (
-            <Button
+            <Digit
               key={digit.label}
               label={digit.label}
               value={digit.value}
               className="numeric"
               setDigit={setValue}
-            ></Button>
+            ></Digit>
           ))}
-          <Button
+          <Digit
             label="0"
             value={0}
             className="numeric"
             setDigit={setValue}
-          ></Button>
-          <Button
+          ></Digit>
+          <Digit
             label="."
             value={0}
             className="numeric"
             setDigit={setValue}
-          ></Button>
+          ></Digit>
         </div>
         <div className="side-operators">
-          <Button
+          <Operator
             label="-"
             value={0}
             className="operator"
-            setDigit={setValue}
-          ></Button>
+            setOperator={setValue}
+          ></Operator>
 
-          <Button
+          <Operator
             label="+"
             value={0}
             className="operator tall"
-            setDigit={setValue}
-          ></Button>
+            setOperator={setValue}
+          ></Operator>
 
-          <Button
+          <Operator
             label="="
             value={0}
             className="result tall"
-            setDigit={setValue}
-          ></Button>
+            setOperator={setValue}
+          ></Operator>
         </div>
       </div>
     </div>
