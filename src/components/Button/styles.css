@@ -33,3 +33,7 @@
   background-color: var(--blue400);
   color: var(--blue100);
 }
+
+.number-zero {
+  width: 144px;
+}

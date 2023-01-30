@@ -35,9 +35,17 @@
 }
 
 .numerics {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
 }
+
 .top-operators {
   display: flex;
   justify-content: center;
+}
+
+.bottom-digits {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
