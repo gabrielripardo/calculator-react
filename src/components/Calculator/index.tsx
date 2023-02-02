@@ -69,6 +69,17 @@ export default function Calculator() {
     setNumLeft(rsl);
   };
 
+  const deleteDigit = () => {
+    const digitCur = digit.substring(0, digit.length - 1);
+    setDigit(digitCur);
+
+    if (numLeft !== "" && numRight === "") {
+      setNumLeft(numLeft.substring(0, numLeft.length - 1));
+    } else {
+      setNumRight(numRight.substring(0, numRight.length - 1));
+    }
+  };
+
   return (
     <div className="container">
       <Display expression={expression}>{digit !== "" ? digit : "0"}</Display>
@@ -84,7 +95,7 @@ export default function Calculator() {
             label="<-"
             value="backspace"
             className="cleaner"
-            setOperator={setValue}
+            setOperator={deleteDigit}
           ></Operator>
           <Operator
             label="/"
