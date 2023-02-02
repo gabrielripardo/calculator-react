@@ -10,6 +10,7 @@ export default function Calculator() {
   const [numRight, setNumRight] = useState("");
   const [digit, setDigit] = useState("");
   const [operator, setOperator] = useState("");
+  const [expression, setExpression] = useState("");
 
   const numbersDigits: NumberDigit[] = [];
   for (let i = 1; i <= 9; i++) {
@@ -17,24 +18,31 @@ export default function Calculator() {
   }
 
   const setValue = (value: string) => {
-    setDigit(digit + value);
     if (operator == "") {
       setNumLeft(numLeft + value);
+      setDigit(numLeft + value);
     } else {
       setNumRight(numRight + value);
+      setDigit(numRight + value);
     }
   };
 
   const setOperation = (operator: string) => {
     setOperator(operator);
-    setDigit(numLeft + " " + operator + " ");
+    setExpression(numLeft + " " + operator);
+    setDigit(numLeft);
+  };
+
+  const cleanCalc = () => {
+    setNumLeft("");
+    setNumRight("");
+    setOperator("");
   };
 
   const clean = () => {
-    setNumLeft("");
-    setNumRight("");
+    cleanCalc();
+    setExpression("");
     setDigit("");
-    setOperator("");
   };
 
   const calc = () => {
@@ -54,12 +62,16 @@ export default function Calculator() {
   };
 
   const showResult = () => {
-    setDigit(String(calc()));
+    const rsl = String(calc());
+    setExpression(expression + " " + digit);
+    setDigit("= " + rsl);
+    cleanCalc();
+    setNumLeft(rsl);
   };
 
   return (
     <div className="container">
-      <Display>{digit !== "" ? digit : "0"}</Display>
+      <Display expression={expression}>{digit !== "" ? digit : "0"}</Display>
       <div className="keyboard">
         <div className="top-operators">
           <Operator
