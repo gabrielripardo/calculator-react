@@ -4,6 +4,8 @@ import Operator from "../Operator";
 import Display from "../Display";
 import { useState } from "react";
 import { NumberDigit } from "../../models/NumberDigit";
+import Control from "../Control/";
+import BackspaceIcon from "../../assets/icons/backspace-icon.svg";
 
 export default function Calculator() {
   const [numLeft, setNumLeft] = useState("");
@@ -97,18 +99,16 @@ export default function Calculator() {
       <Display expression={expression}>{digit !== "" ? digit : "0"}</Display>
       <div className="keyboard">
         <div className="top-operators">
-          <Operator
-            label="Ac"
-            value="cc"
-            className="cleaner"
-            setOperator={clean}
-          ></Operator>
-          <Operator
-            label="<-"
+          <Control value="cc" className="cleaner" setControl={clean}>
+            <span>Ac</span>
+          </Control>
+          <Control
             value="backspace"
             className="cleaner"
-            setOperator={deleteDigit}
-          ></Operator>
+            setControl={deleteDigit}
+          >
+            <img src={BackspaceIcon} alt="backspace icon" />
+          </Control>
           <Operator
             label="/"
             value="/"

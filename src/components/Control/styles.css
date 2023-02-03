@@ -1,5 +1,4 @@
-.operator,
-.result {
+.cleaner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,23 +8,6 @@
   width: 62px;
   height: 60px;
   border: none;
-}
-
-.operator {
-  color: var(--blue200);
-  background-color: var(--blue600);
-}
-
-.tall {
-  height: 96px;
-}
-
-.cleaner {
   color: var(--gray100);
   background-color: var(--gray300);
-}
-
-.result {
-  background-color: var(--blue400);
-  color: var(--blue100);
 }
