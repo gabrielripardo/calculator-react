@@ -18,12 +18,14 @@ export default function Calculator() {
   }
 
   const setValue = (value: string) => {
-    if (operator == "") {
-      setNumLeft(numLeft + value);
-      setDigit(numLeft + value);
-    } else {
-      setNumRight(numRight + value);
-      setDigit(numRight + value);
+    if (digit.length < 16) {
+      if (operator == "") {
+        setNumLeft(numLeft + value);
+        setDigit(numLeft + value);
+      } else {
+        setNumRight(numRight + value);
+        setDigit(numRight + value);
+      }
     }
   };
 
