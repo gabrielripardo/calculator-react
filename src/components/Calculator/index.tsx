@@ -27,10 +27,20 @@ export default function Calculator() {
     }
   };
 
-  const setOperation = (operator: string) => {
+  const handleOperation = (operator: string) => {
     setOperator(operator);
     setExpression(numLeft + " " + operator);
     setDigit(numLeft);
+  };
+
+  const handleComma = () => {
+    if (operator == "") {
+      setNumLeft(numLeft + ",");
+      setDigit(numLeft + ",");
+    } else {
+      setNumRight(numRight + ",");
+      setDigit(numRight + ",");
+    }
   };
 
   const cleanCalc = () => {
@@ -46,8 +56,8 @@ export default function Calculator() {
   };
 
   const calc = () => {
-    const num1 = Number(numLeft);
-    const num2 = Number(numRight);
+    const num1 = Number(numLeft.replace(",", "."));
+    const num2 = Number(numRight.replace(",", "."));
 
     switch (operator) {
       case "/":
@@ -62,7 +72,7 @@ export default function Calculator() {
   };
 
   const showResult = () => {
-    const rsl = String(calc());
+    const rsl = String(calc()).replace(".", ",");
     setExpression(expression + " " + digit);
     setDigit("= " + rsl);
     cleanCalc();
@@ -101,13 +111,13 @@ export default function Calculator() {
             label="/"
             value="/"
             className="operator"
-            setOperator={setOperation}
+            setOperator={handleOperation}
           ></Operator>
           <Operator
             label="*"
             value="*"
             className="operator"
-            setOperator={setOperation}
+            setOperator={handleOperation}
           ></Operator>
         </div>
         <div className="numerics">
@@ -127,10 +137,10 @@ export default function Calculator() {
             setDigit={setValue}
           ></Digit>
           <Digit
-            label="."
+            label=","
             value={0}
             className="numeric"
-            setDigit={setValue}
+            setDigit={handleComma}
           ></Digit>
         </div>
         <div className="side-operators">
@@ -138,14 +148,14 @@ export default function Calculator() {
             label="-"
             value="-"
             className="operator"
-            setOperator={setOperation}
+            setOperator={handleOperation}
           ></Operator>
 
           <Operator
             label="+"
             value="+"
             className="operator tall"
-            setOperator={setOperation}
+            setOperator={handleOperation}
           ></Operator>
 
           <Operator
