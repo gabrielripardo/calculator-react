@@ -122,28 +122,32 @@ export default function Calculator() {
             setOperator={handleOperation}
           ></Operator>
         </div>
-        <div className="numerics">
-          {numbersDigits.map((digit: NumberDigit) => (
+        <div className="main-digits">
+          <div className="numerics">
+            {numbersDigits.map((digit: NumberDigit) => (
+              <Digit
+                key={digit.label}
+                label={digit.label}
+                value={digit.value}
+                className="numeric"
+                setDigit={setValue}
+              ></Digit>
+            ))}
+          </div>
+          <div className="numerics-bottom">
             <Digit
-              key={digit.label}
-              label={digit.label}
-              value={digit.value}
-              className="numeric"
+              label="0"
+              value={0}
+              className="numeric fat zero"
               setDigit={setValue}
             ></Digit>
-          ))}
-          <Digit
-            label="0"
-            value={0}
-            className="numeric"
-            setDigit={setValue}
-          ></Digit>
-          <Digit
-            label=","
-            value={0}
-            className="numeric"
-            setDigit={handleComma}
-          ></Digit>
+            <Digit
+              label=","
+              value={0}
+              className="numeric comma"
+              setDigit={handleComma}
+            ></Digit>
+          </div>
         </div>
         <div className="side-operators">
           <Operator
@@ -152,14 +156,12 @@ export default function Calculator() {
             className="operator"
             setOperator={handleOperation}
           ></Operator>
-
           <Operator
             label="+"
             value="+"
             className="operator tall"
             setOperator={handleOperation}
           ></Operator>
-
           <Operator
             label="="
             value="equal"

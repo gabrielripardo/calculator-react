@@ -1,3 +1,7 @@
+:root {
+  --distance-button: 16px;
+}
+
 .container {
   width: 360px;
   height: 700px;
@@ -13,10 +17,16 @@
 }
 
 .keyboard,
+.main-digits,
 .top-operators,
 .side-operators,
-.numerics {
-  gap: 16px;
+.numerics,
+.numerics-bottom {
+  gap: var(--distance-button);
+}
+
+.keyboard {
+  row-gap: calc(var(--distance-button) + 6px);
 }
 
 .keyboard {
@@ -27,6 +37,13 @@
   margin-top: 20px;
 }
 
+.main-digits {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .side-operators {
   display: flex;
   flex-direction: column;
@@ -34,10 +51,23 @@
   align-items: center;
 }
 
+.result {
+  margin-top: 12px;
+}
+
 .numerics {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.numerics-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-end;
+}
+
+.numerics-bottom .zero {
+  grid-column: 1 / span 2;
 }
 
 .top-operators {
