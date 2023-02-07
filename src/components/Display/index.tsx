@@ -1,8 +1,8 @@
 import "./styles.css";
-
+import { Expression } from "../../models/Expression";
 interface props {
   children: string;
-  expression: string;
+  expression: Expression;
 }
 
 export default function Display({ children, expression }: props) {
@@ -17,7 +17,11 @@ export default function Display({ children, expression }: props) {
 
   return (
     <div className="content" style={{ fontSize: getFontSize() }}>
-      <div className="expression">{expression}</div>
+      <div className="expression">
+        {expression.numLeft}{" "}
+        <span className="blue-color">{expression.operator}</span>{" "}
+        {expression.numRight}
+      </div>
       {children}
     </div>
   );

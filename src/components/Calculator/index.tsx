@@ -4,6 +4,7 @@ import Operator from "../Operator";
 import Display from "../Display";
 import { useState } from "react";
 import { NumberDigit } from "../../models/NumberDigit";
+import { Expression } from "../../models/Expression";
 import Control from "../Control/";
 import BackspaceIcon from "../../assets/icons/backspace-icon.svg";
 
@@ -12,7 +13,11 @@ export default function Calculator() {
   const [numRight, setNumRight] = useState("");
   const [digit, setDigit] = useState("");
   const [operator, setOperator] = useState("");
-  const [expression, setExpression] = useState("");
+  const [expression, setExpression] = useState<Expression>({
+    numLeft: "",
+    operator: "",
+    numRight: "",
+  });
 
   const numbersDigits: NumberDigit[] = [];
   for (let i = 1; i <= 9; i++) {
@@ -33,7 +38,7 @@ export default function Calculator() {
 
   const handleOperation = (operator: string) => {
     setOperator(operator);
-    setExpression(numLeft + " " + operator);
+    setExpression({ ...expression, numLeft: numLeft, operator });
     setDigit(numLeft);
   };
 
@@ -55,7 +60,7 @@ export default function Calculator() {
 
   const clean = () => {
     cleanCalc();
-    setExpression("");
+    setExpression({ numLeft: "", operator: "", numRight: "" });
     setDigit("");
   };
 
@@ -77,7 +82,7 @@ export default function Calculator() {
 
   const showResult = () => {
     const rsl = String(calc()).replace(".", ",");
-    setExpression(expression + " " + digit);
+    setExpression({ ...expression, numRight: numRight });
     setDigit("= " + rsl);
     cleanCalc();
     setNumLeft(rsl);
