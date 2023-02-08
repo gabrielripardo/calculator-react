@@ -2,7 +2,7 @@ import "./styles.css";
 import Digit from "../Digit";
 
 interface props {
-  setDigit: void;
+  setDigit: any;
 }
 
 export default function NumericKeyboard({ setDigit }: props) {
