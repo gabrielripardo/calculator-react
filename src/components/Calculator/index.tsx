@@ -7,6 +7,7 @@ import { NumberDigit } from "../../models/NumberDigit";
 import { Expression } from "../../models/Expression";
 import Control from "../Control/";
 import BackspaceIcon from "../../assets/icons/backspace-icon.svg";
+import NumericKeyboard from "../NumericKeyboard";
 
 export default function Calculator() {
   const [numLeft, setNumLeft] = useState("");
@@ -128,17 +129,7 @@ export default function Calculator() {
           ></Operator>
         </div>
         <div className="main-digits">
-          <div className="numerics">
-            {numbersDigits.map((digit: NumberDigit) => (
-              <Digit
-                key={digit.label}
-                label={digit.label}
-                value={digit.value}
-                className="numeric"
-                setDigit={setValue}
-              ></Digit>
-            ))}
-          </div>
+          <NumericKeyboard setDigit={setValue} />
           <div className="numerics-bottom">
             <Digit
               label="0"
