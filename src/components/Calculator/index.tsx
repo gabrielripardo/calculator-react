@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.scss";
 import Digit from "../Digit";
 import Operator from "../Operator";
 import Display from "../Display";

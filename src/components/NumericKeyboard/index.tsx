@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.scss";
 import Digit from "../Digit";
 
 interface props {

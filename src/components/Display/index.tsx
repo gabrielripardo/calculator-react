@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.scss";
 import { Expression } from "../../models/Expression";
 interface props {
   children: string;
