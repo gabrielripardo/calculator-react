@@ -39,7 +39,7 @@ export default function Calculator() {
 
   const handleOperation = (operator: string) => {
     setOperator(operator);
-    setExpression({ ...expression, numLeft: numLeft, operator });
+    setExpression({ numLeft, operator, numRight });
     setDigit(numLeft);
   };
 
@@ -86,7 +86,7 @@ export default function Calculator() {
     setExpression({ ...expression, numRight: numRight });
     setDigit("= " + rsl);
     cleanCalc();
-    setNumLeft(rsl);
+    setNumLeft(rsl != "0" ? rsl : "");
   };
 
   const deleteDigit = () => {
