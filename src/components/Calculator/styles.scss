@@ -28,15 +28,12 @@ $distance-button: 16px;
 }
 
 .keyboard {
-  row-gap: calc($distance-button) + 6px;
-}
-
-.keyboard {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  row-gap: calc($distance-button) + 6px;  
 }
 
 .main-digits {

@@ -10,6 +10,7 @@
   width: 62px;
   height: 60px;
   border: none;
+  font-weight: 500;
   @include themify($themes) {    
     background-color: themed('controlBackground'); 
     color: themed('controlColor');

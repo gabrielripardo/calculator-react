@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16pt;
+  font-size: 28px;
   border-radius: 16px;
   border-radius: 16px;
   width: 62px;
@@ -14,6 +14,7 @@
 }
 
 .operator {
+  font-weight: 500;
   @include themify($themes) {            
     color: themed('operatorColor');    
     background-color: themed('operatorBackground');    
@@ -22,13 +23,6 @@
 
 .tall {
   height: 96px;
-}
-
-.cleaner {
-  @include themify($themes) {            
-    color: themed('cleanerColor');    
-    background-color: themed('cleanerBackground');    
-  };     
 }
 
 .result {

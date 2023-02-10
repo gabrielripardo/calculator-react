@@ -1,12 +1,13 @@
 @import '../../styles/theme-variables.scss';
 
 .numeric {
-  font-size: 16pt;
+  font-size: 28px;
   border-radius: 16px;
   border-radius: 16px;
   width: 62px;
   height: 60px;
   border: none;
+  font-weight: 500;
   @include themify($themes) {
     color: themed('digitNumericColor');
     background-color: themed('digitNumericBackground'); 

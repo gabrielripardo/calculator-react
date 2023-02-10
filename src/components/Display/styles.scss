@@ -13,15 +13,14 @@
   };   
 
   width: 100%;
-  height: 200px;
-  font-size: 2.5rem;
+  height: 200px;  
 }
 
 .expression {
   @include themify($themes) {            
     color: themed('expressionColor');    
   };     
-  font-size: 1.25rem;
+  font-size: 1.48rem;
   text-align: right;
 }
 
