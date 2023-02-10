@@ -25,21 +25,34 @@ export default function Calculator() {
     numbersDigits.push({ label: String(i), value: i });
   }
 
-  const setValue = (value: string) => {
+  const handleValue = (value: string) => {
     if (digit.length < 16) {
-      if (operator == "") {
-        setNumLeft(numLeft + value);
-        setDigit(numLeft + value);
+      if (!digit.includes("=")) {
+        changeValue(value, {
+          numLeft: numLeft,
+          numRight: numRight,
+          operator: operator,
+        });
       } else {
-        setNumRight(numRight + value);
-        setDigit(numRight + value);
+        clean();
+        changeValue(value, { numLeft: "", numRight: "", operator: "" });
       }
+    }
+  };
+
+  const changeValue = (value: string, expr: Expression) => {
+    if (expr.operator == "") {
+      setNumLeft(expr.numLeft + value);
+      setDigit(expr.numLeft + value);
+    } else {
+      setNumRight(expr.numRight + value);
+      setDigit(expr.numRight + value);
     }
   };
 
   const handleOperation = (operator: string) => {
     setOperator(operator);
-    setExpression({ numLeft, operator, numRight });
+    setExpression({ numLeft: numLeft, operator: operator, numRight: "" });
     setDigit(numLeft);
   };
 
@@ -54,9 +67,9 @@ export default function Calculator() {
   };
 
   const cleanCalc = () => {
+    setOperator("");
     setNumLeft("");
     setNumRight("");
-    setOperator("");
   };
 
   const clean = () => {
@@ -129,13 +142,13 @@ export default function Calculator() {
           ></Operator>
         </div>
         <div className="main-digits">
-          <NumericKeyboard setDigit={setValue} />
+          <NumericKeyboard setDigit={handleValue} />
           <div className="numerics-bottom">
             <Digit
               label="0"
               value={0}
               className="numeric fat zero"
-              setDigit={setValue}
+              setDigit={handleValue}
             ></Digit>
             <Digit
               label=","
