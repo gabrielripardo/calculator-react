@@ -3,7 +3,6 @@ import Digit from "../Digit";
 import Operator from "../Operator";
 import Display from "../Display";
 import { useState } from "react";
-import { NumberDigit } from "../../models/NumberDigit";
 import { Expression } from "../../models/Expression";
 import Control from "../Control/";
 import BackspaceIcon from "../../assets/icons/backspace-icon.svg";
@@ -19,11 +18,6 @@ export default function Calculator() {
     operator: "",
     numRight: "",
   });
-
-  const numbersDigits: NumberDigit[] = [];
-  for (let i = 1; i <= 9; i++) {
-    numbersDigits.push({ label: String(i), value: i });
-  }
 
   const handleValue = (value: string) => {
     if (digit.length < 16) {
