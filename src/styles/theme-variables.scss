@@ -1,3 +1,4 @@
+$blue000: #ADE2FF;
 $blue100: #b2daff;
 $blue200: #339dff;
 $blue300: #29a8ff;
@@ -7,7 +8,9 @@ $blue600: #005db2;
 $gray100: #a5a5a5;
 $gray200: #818181;
 $gray300: #616161;
+$gray400: #424242;
 $white: #fff;
+$white100: #F7F8FB;
 $black100: #303136;
 $black200: #333;
 $black600: #000;
@@ -15,23 +18,24 @@ $black600: #000;
 
 $themes: (
   light: (
-    bodyBackgroundColor: #f8f8fa,
+    bodyBackgroundColor: #f3f3f3,
     headerFooterBackground: #fff,
     textColor: #000,
     toggleBackground: #dfe4ea,
-    calculatorBackground: $white,
-    digitNumericColor: $white,
-    digitNumericBackground: $blue100,
-    controlColor: $gray100,
-    controlBackground: $gray300,       
-    displayColor: $black600, 
+    calculatorBackground: $white100,
+    digitNumericColor: $blue200,
+    digitNumericBackground: $white,
+    controlColor: $gray300,
+    controlBackground: $white,       
+    displayColor: $gray400, 
     expressionColor: $gray200,
-    operatorColor: $blue200,
-    operatorBackground: $blue600,
+    operatorColor: $blue500,
+    operatorBackground: $blue000,
     cleanerColor: $gray100,
     cleanerBackground: $gray300,
-    resultColor: $blue400,
-    resultBackground: $blue100
+    resultColor: $blue100,
+    resultBackground: $blue400,
+    resultShadow: -9px 13px 23px $blue400
     ),
   dark: (
     bodyBackgroundColor: #222736,

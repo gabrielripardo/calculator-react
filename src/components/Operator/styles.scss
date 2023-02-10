@@ -35,5 +35,6 @@
   @include themify($themes) {            
     color: themed('resultColor');    
     background-color: themed('resultBackground');    
+    box-shadow: themed('resultShadow');    
   };     
 }
