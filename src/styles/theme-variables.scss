@@ -1,15 +1,56 @@
+$blue100: #b2daff;
+$blue200: #339dff;
+$blue300: #29a8ff;
+$blue400: #1991ff;
+$blue500: #109dff;
+$blue600: #005db2;
+$gray100: #a5a5a5;
+$gray200: #818181;
+$gray300: #616161;
+$white: #fff;
+$black100: #303136;
+$black200: #333;
+$black600: #000;
+
+
 $themes: (
   light: (
     bodyBackgroundColor: #f8f8fa,
     headerFooterBackground: #fff,
     textColor: #000,
     toggleBackground: #dfe4ea,
-  ),
+    calculatorBackground: $white,
+    digitNumericColor: $white,
+    digitNumericBackground: $blue100,
+    controlColor: $gray100,
+    controlBackground: $gray300,       
+    displayColor: $black600, 
+    expressionColor: $gray200,
+    operatorColor: $blue200,
+    operatorBackground: $blue600,
+    cleanerColor: $gray100,
+    cleanerBackground: $gray300,
+    resultColor: $blue400,
+    resultBackground: $blue100
+    ),
   dark: (
     bodyBackgroundColor: #222736,
     headerFooterBackground: #36394c,
     textColor: #eff2f7,
-    toggleBackground: #606071,
+    toggleBackground: #606071,    
+    calculatorBackground: $black600,
+    digitNumericColor: $blue300,
+    digitNumericBackground: $black100,
+    controlColor: $gray100,
+    controlBackground: $gray300,      
+    displayColor: $white, 
+    expressionColor: $gray200,
+    operatorColor: $blue200,
+    operatorBackground: $blue600,
+    cleanerColor: $gray100,
+    cleanerBackground: $gray300,
+    resultColor: $blue100,
+    resultBackground: $blue400
   ),
 );
 

@@ -1,3 +1,5 @@
+@import '../../styles/theme-variables.scss';
+
 .operator,
 .result {
   display: flex;
@@ -12,8 +14,10 @@
 }
 
 .operator {
-  color: var(--blue200);
-  background-color: var(--blue600);
+  @include themify($themes) {            
+    color: themed('operatorColor');    
+    background-color: themed('operatorBackground');    
+  };   
 }
 
 .tall {
@@ -21,11 +25,15 @@
 }
 
 .cleaner {
-  color: var(--gray100);
-  background-color: var(--gray300);
+  @include themify($themes) {            
+    color: themed('cleanerColor');    
+    background-color: themed('cleanerBackground');    
+  };     
 }
 
 .result {
-  background-color: var(--blue400);
-  color: var(--blue100);
+  @include themify($themes) {            
+    color: themed('resultColor');    
+    background-color: themed('resultBackground');    
+  };     
 }

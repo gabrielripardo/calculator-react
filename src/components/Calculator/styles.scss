@@ -1,6 +1,6 @@
-:root {
-  --distance-button: 16px;
-}
+@import '../../styles/theme-variables.scss';
+
+$distance-button: 16px;
 
 .container {
   width: 360px;
@@ -10,7 +10,9 @@
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: var(--black600);
+  @include themify($themes) {    
+    background-color: themed('calculatorBackground'); 
+  };  
   border-radius: 16px;
   font-size: 24pt;
   padding: 26px;
@@ -22,11 +24,11 @@
 .side-operators,
 .numerics,
 .numerics-bottom {
-  gap: var(--distance-button);
+  gap: $distance-button;
 }
 
 .keyboard {
-  row-gap: calc(var(--distance-button) + 6px);
+  row-gap: calc($distance-button) + 6px;
 }
 
 .keyboard {

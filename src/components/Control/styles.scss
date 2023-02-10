@@ -1,3 +1,5 @@
+@import '../../styles/theme-variables.scss';
+
 .cleaner {
   display: flex;
   justify-content: center;
@@ -8,6 +10,8 @@
   width: 62px;
   height: 60px;
   border: none;
-  color: var(--gray100);
-  background-color: var(--gray300);
+  @include themify($themes) {    
+    background-color: themed('controlBackground'); 
+    color: themed('controlColor');
+  };    
 }

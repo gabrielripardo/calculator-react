@@ -1,3 +1,5 @@
+@import '../../styles/theme-variables.scss';
+
 .numeric {
   font-size: 16pt;
   border-radius: 16px;
@@ -5,8 +7,10 @@
   width: 62px;
   height: 60px;
   border: none;
-  color: var(--blue300);
-  background-color: var(--black100);
+  @include themify($themes) {
+    color: themed('digitNumericColor');
+    background-color: themed('digitNumericBackground'); 
+  };
 }
 
 .fat {
