@@ -9,7 +9,7 @@ function App() {
     window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const getDefaultTheme = (): string => {
-    const localStorageTheme = localStorage.getItem("default-theme");
+    const localStorageTheme = localStorage.getItem("theme");
     const browserDefault = isBrowserDefaultDark() ? "dark" : "light";
     return localStorageTheme || browserDefault;
   };
