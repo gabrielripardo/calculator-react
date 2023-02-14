@@ -46,8 +46,16 @@ export default function Calculator() {
 
   const handleOperation = (operator: string) => {
     setOperator(operator);
-    setExpression({ numLeft: numLeft, operator: operator, numRight: "" });
-    setDigit(numLeft);
+    if (numLeft && numRight) {
+      const rsl = String(calc()).replace(".", ",");
+      setNumRight("");
+      setNumLeft(rsl);
+      setExpression({ numLeft: rsl, operator: operator, numRight: "" });
+      setDigit(rsl);
+    } else {
+      setExpression({ numLeft: numLeft, operator: operator, numRight: "" });
+      setDigit(numLeft);
+    }
   };
 
   const handleComma = () => {
@@ -89,11 +97,13 @@ export default function Calculator() {
   };
 
   const showResult = () => {
-    const rsl = String(calc()).replace(".", ",");
-    setExpression({ ...expression, numRight: numRight });
-    setDigit("= " + rsl);
-    cleanCalc();
-    setNumLeft(rsl != "0" ? rsl : "");
+    if (numLeft && numRight) {
+      const rsl = String(calc()).replace(".", ",");
+      setExpression({ ...expression, numRight: numRight });
+      setDigit("= " + rsl);
+      cleanCalc();
+      setNumLeft(rsl != "0" ? rsl : "");
+    }
   };
 
   const deleteDigit = () => {
